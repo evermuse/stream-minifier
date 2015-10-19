@@ -2,7 +2,7 @@
   "name": "stream-minifier",
   "version": "1.0.0",
   "description": "node utility to minify code",
-  "main": "app.js",
+  "main": "minify.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
