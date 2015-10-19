@@ -1,0 +1,26 @@
+{
+  "name": "stream-minifier",
+  "version": "1.0.0",
+  "description": "node utility to minify code",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evermuse/stream-minifier.git"
+  },
+  "keywords": [
+    "node",
+    "minify"
+  ],
+  "author": "bryan alexander",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evermuse/stream-minifier/issues"
+  },
+  "homepage": "https://github.com/evermuse/stream-minifier#readme",
+  "devDependencies": {
+    "minimist": "^1.2.0"
+  }
+}
