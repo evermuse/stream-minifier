@@ -1,13 +1,24 @@
 var fs = require('fs');
 var Transform = require('stream').Transform;
+var inherits = require('util').inherits;
 
 var args = process.argv.slice(2);
 
-function MinTransform(options) {
+function MinifyStream(options) {
 
-  Transform.call(this, options);
+  Transform.call(this);
 
 }
+inherits(MinifyStream, Transform);
+
+MinifyStream.prototype._transform = function (chunk, enc, done) {
+
+  chunk = chunk.toString().replace(/\r?\n|\r/g, '');
+
+  this.push(chunk);
+  done();
+
+};
 
 if (args[0] === '--input' && args[2] === '--output') {
 
@@ -15,10 +26,10 @@ if (args[0] === '--input' && args[2] === '--output') {
 
   var writeFile = fs.createWriteStream(args[3]);
 
-  //readFile.pipe(writeFile);
+  readFile.pipe(new MinifyStream()).pipe(writeFile);
 
 } else {
 
-  console.log('not formatted correctly');
+  console.log('Stream Minifier (c) Bryan Alexander\n\nusage:\n\n--input [filename] --output [filename]');
 
 }
